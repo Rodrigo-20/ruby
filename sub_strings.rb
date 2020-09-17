@@ -2,7 +2,8 @@
 
 def sub_strings(string,dictionary)
     #included=[]
-    included= dictionary.map{ |word| Array.new(string.split(word).length, word)}.reduce(Array.new) do |wordin,wordrep  |
+    test_string="! "+string+" !"
+    included= dictionary.map{ |word| Array.new(test_string.downcase.split(word).length - 1, word)}.reduce(Array.new) do |wordin,wordrep  |
         wordin+wordrep 
     end
     included.reduce(Hash.new(0)) do |word, word_hits| 
@@ -13,5 +14,6 @@ def sub_strings(string,dictionary)
     
 
 end
-result= sub_strings("hello world! my name is rodrigo and my second name is also rodrigo or maybe is not",["rodrigo","is"])
+dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
+result= sub_strings("Howdy partner, sit down! How's it going?",dictionary)
 puts result
