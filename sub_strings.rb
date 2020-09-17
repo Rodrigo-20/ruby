@@ -3,8 +3,8 @@
 def sub_strings(string,dictionary)
     #included=[]
     test_string="! "+string+" !"
-    included= dictionary.map{ |word| Array.new(test_string.downcase.split(word).length - 1, word)}.reduce(Array.new) do |wordin,wordrep  |
-        wordin+wordrep 
+    included= dictionary.map{ |word| Array.new(test_string.downcase.split(word).length - 1, word)}.reduce(Array.new) do |words_array,some_word_repeated |
+        words_array +some_word_repeated
     end
     included.reduce(Hash.new(0)) do |word, word_hits| 
         word[word_hits]+=1
